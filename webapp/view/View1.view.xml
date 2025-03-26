@@ -1,0 +1,57 @@
+<mvc:View
+    controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <Button
+                text="Increment Orders"
+                press="onPressButton"
+                type="Emphasized"
+            />
+            <Button
+                text="Download PDF"
+                press="onGeneratePDF"
+            />
+            <Table
+                id="table"
+                inset="false"
+                items="{orderModel>/Orders}"
+            >
+                <columns>
+                    <Column
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Text text="OrderID" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                    >
+                        <Text text="Status" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{orderModel>Order}" />
+                            <Text text="{orderModel>Status}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Text
+                text=""
+                id="base64_string"
+            />
+            
+        </content>
+    </Page>
+</mvc:View>
